@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    // 2. Adiciona o HasApiTokens aqui dentro
+
     use HasApiTokens, HasFactory, Notifiable;
 
   

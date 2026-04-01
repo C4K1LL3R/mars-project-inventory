@@ -16,7 +16,19 @@
         </header>
 
         <div class="bg-slate-700 border border-slate-200 p-8 rounded-2xl shadow-2xl">
-            <form action="{{ url('/login') }}" method="POST" class="flex flex-col gap-5">
+      @if ($errors->has('email'))
+    <div 
+        
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5 rounded-xl animate-pulse" 
+        role="alert"
+    >
+        <p class="text-sm font-bold">Erro de Acesso</p>
+        <p class="text-xs">{{ $errors->first('email') }}</p>
+    </div>
+@endif  
+        <form action="{{ url('/login') }}" method="POST" class="flex flex-col gap-5">
                 @csrf 
                 <div class="flex flex-col gap-1">
                     <label class="text-xs font-semibold text-slate-100 uppercase">Endereço de Email</label>
